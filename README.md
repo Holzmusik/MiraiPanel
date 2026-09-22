@@ -46,6 +46,18 @@ over-the-air.
   <img src="assets/screen-audio.jpg" alt="Audio Now-Playing" width="220">
 </p>
 
+### Web-Konfiguration
+
+Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät
+läuft — inklusive visuellem Layout-Editor mit Live-Vorschau und einem
+Status-Dashboard mit Echtzeitwerten.
+
+<p align="center">
+  <img src="assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" width="270">
+  <img src="assets/web-preview.png" alt="Live-Display-Vorschau" width="270">
+  <img src="assets/web-status.png" alt="Status-Dashboard" width="270">
+</p>
+
 ## Architektur
 
 ```mermaid
