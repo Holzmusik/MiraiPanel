@@ -17,7 +17,9 @@ Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
 </p>
 
 Dieses Repo ist die **Projektübersicht** — der eigentliche Code liegt in den
-verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
+verlinkten Teilprojekten unten.
+
+📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
 
 ## Was das Gerät macht
 
