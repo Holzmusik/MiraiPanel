@@ -70,6 +70,50 @@ Funktionsblöcke pro Raum verknüpfen.
   <img src="assets/bridge-settings.png" alt="MiraiBridge: Einstellungen" width="400">
 </p>
 
+## Verhalten: Screensaver & Sleep
+
+Das Display eskaliert bei Inaktivität in mehreren Stufen, statt einfach
+abrupt auszugehen — und kann bei Bedarf per MQTT sogar in echten
+Tiefschlaf versetzt werden, aus dem es zyklisch nur kurz für einen
+Sensor-Report aufwacht.
+
+```mermaid
+stateDiagram-v2
+    Aktiv --> Screensaver: Inaktivität (Timeout)
+    Screensaver --> Gedimmt: weiter inaktiv
+    Gedimmt --> DisplayAus: weiter inaktiv (Burn-in-Schutz)
+
+    Aktiv --> DeepSleep: MQTT sleep=1
+    Screensaver --> DeepSleep: MQTT sleep=1
+    Gedimmt --> DeepSleep: MQTT sleep=1
+    DisplayAus --> DeepSleep: MQTT sleep=1
+
+    DeepSleep --> KurzWach: Timer (alle N Min.)
+    KurzWach --> DeepSleep: Sensorwerte gesendet (35s)
+    DeepSleep --> Aktiv: Bewegung (GPIO)
+
+    Screensaver --> Aktiv: Touch / ToF / MQTT
+    Gedimmt --> Aktiv: Touch / ToF / MQTT
+    DisplayAus --> Aktiv: Touch / ToF / MQTT
+```
+
+- **Screensaver**: nach konfigurierbarer Inaktivität blendet sich je nach
+  Zustand eine Analoguhr (kein Audio aktiv) oder ein Now-Playing-Overlay
+  (Musik läuft) ein
+- **Dimmen**: Helligkeit sinkt in einer ersten Stufe ab (auf einen festen
+  Nachtwert oder relativ zur zuletzt aktiven Helligkeit)
+- **Display aus**: zweite Stufe schaltet die Hintergrundbeleuchtung ganz
+  ab, ein Burn-in-Schutz läuft dabei unsichtbar im Hintergrund weiter
+- **Aufwecken**: durch Touch, Näherungssensor, oder eine MQTT-Helligkeits-
+  Änderung von Loxone aus — jede dieser drei Stufen lässt sich so wieder
+  verlassen
+- **Night Mode / Deep Sleep**: per MQTT-Befehl aktivierbar (z.B. nachts)
+  — der ESP32-P4 geht dann in echten Tiefschlaf (< 0,1 W statt ~2,3 W im
+  Normalbetrieb) und wacht in einem konfigurierbaren Intervall (Standard
+  10 Minuten) nur für wenige Sekunden auf, um aktuelle Sensorwerte an
+  Loxone zu melden, bevor er wieder schläft. Bewegung am Panel weckt es
+  stattdessen sofort vollständig auf.
+
 ## Architektur
 
 ```mermaid
@@ -121,8 +165,8 @@ Kabelführung.
 | **Display & Bedienung** | Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
 | | Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
 | | Näherung | ToF-Sensor + PIR wecken das Display bei Annäherung |
-| | Feedback | konfigurierbare Tastentöne |
-| | UI | Light-/Dark-Theme, wählbare Akzentfarbe |
+| | Feedback | Tastenklick per Buzzer, zusätzlich per MQTT auslösbarer Dauer-Warnton |
+| | UI | Light-/Dark-Theme (auch automatisch über den Lichtsensor), 5 Akzentfarben |
 | **Sensoren** | Raumklima | Temperatur/Feuchte, CO₂/VOC/Luftqualität |
 | | Bewegung | PIR-Sensor |
 | | Präsenz | Mikrofon mit einstellbarer Schwelle |
@@ -136,7 +180,7 @@ Kabelführung.
 | | Verbrauch | ca. 1,8 W bei aktivem Display |
 | | Sleep-Modus | aktivierbar, automatisches Wecken bei aktuellen Sensorwerten, Dauer konfigurierbar |
 | **Konfiguration** | Einrichtung | vollständig über Web-Oberfläche am Gerät konfigurierbar |
-| | Updates | Firmware-Updates over-the-air |
+| | Updates | Firmware-Updates over-the-air, Firmware-Datei auch direkt per Drag & Drop im Browser |
 | **Gehäuse** | Montage | freistehend, wandmontiert, oder nachgerüstet auf bestehendem Lichtschalter-Sockel |
 | | Materialien | eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff, Glas |
 
