@@ -135,7 +135,7 @@ flowchart LR
     Bridge <-->|MQTT| Panel("MiraiPanel<br/>(ESP32-P4-Firmware)")
     Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio("Loxone Audioserver<br/>/ Sonn Core")
     Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
-    Panel -->|"HTTP<br/>Cover-Bild (Proxy)"| Bridge
+    Bridge -->|"HTTP<br/>Cover-Bild (Proxy)"| Panel
 ```
 
 Die MiraiBridge liest beim Start/bei jeder Änderung die komplette
