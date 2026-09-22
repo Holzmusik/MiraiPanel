@@ -86,33 +86,73 @@ Audioserver direkt per HTTP an, an der Bridge vorbei.
 
 ## Hardware
 
-- ESP32-P4 (RISC-V) + ESP32-C6-Companion für WLAN, dazu Ethernet
-  (automatisches Failover LAN↔WLAN)
-- 720×1280 MIPI-DSI-LCD, kapazitiver Touchscreen (GT911) + 8 kapazitive
-  Sensortasten (MPR121)
-- Sensoren: VL53L0X (ToF-Näherung), PIR, Mikrofon, Temperatur/Feuchte,
-  CO₂/VOC/Luftqualität, Umgebungslicht, Versorgungsspannung/-strom
-- Eigene PCB (Basis + Sensor-/Touch-Module), siehe
-  [MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware)
-
-**Montage**: freistehend vor einer Wand, wandmontiert, oder nachgerüstet auf
-dem bestehenden Sockel eines Lichtschalters (kompakte Variante) —
-integrierte, unsichtbare Kabelführung.
-
-**Materialien**: eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff
-und Glas.
+Eigene PCB (Basis + Sensor-/Touch-Module) und Gehäuse, siehe
+[MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware).
+Montage freistehend, wandmontiert, oder nachgerüstet auf dem bestehenden
+Sockel eines Lichtschalters (kompakte Variante) — integrierte, unsichtbare
+Kabelführung.
 
 <p align="center">
-  <img src="assets/mount-1.png" alt="Montagevarianten: freistehend und wandmontiert" width="270">
-  <img src="assets/mount-3.png" alt="Wandmontage: Säule und kompakte Variante" width="270">
-  <br>
-  <img src="assets/mount-2.png" alt="Detailansicht Display und Sensortasten" width="270">
-  <img src="assets/mount-4.png" alt="Detailansicht kompakte Wandvariante" width="270">
+  <img src="assets/mount-1.png" alt="Montagevarianten: freistehend, wandmontiert und kompakt" width="320">
+  <img src="assets/mount-2.png" alt="Detailansicht Display und Sensortasten" width="320">
 </p>
 
 <p align="center">
   <img src="assets/panel-back.png" alt="MiraiPanel Rückseite" width="220">
 </p>
+
+## Technische Daten
+
+**Display & Bedienung**
+
+| | |
+|---|---|
+| Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
+| Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
+| Näherung | ToF-Sensor (VL53L0X) + PIR wecken das Display bei Annäherung |
+| Feedback | konfigurierbare Tastentöne |
+| UI | Light-/Dark-Theme, wählbare Akzentfarbe |
+
+**Sensoren**
+
+| | |
+|---|---|
+| Raumklima | Temperatur/Feuchte, CO₂/VOC/Luftqualität |
+| Bewegung | PIR-Sensor |
+| Präsenz | Mikrofon mit einstellbarer Schwelle |
+| Licht | Umgebungslichtsensor |
+| Versorgung | Spannungs-/Strommessung |
+
+**Konnektivität & Integration**
+
+| | |
+|---|---|
+| Netzwerk | LAN 10/100, automatisches Failover auf WLAN |
+| Protokoll | MQTT — offene Schnittstelle für jede MQTT-Umgebung |
+| Loxone | LoxBerry-Plugin (MiraiBridge) für direkte Integration |
+| Auch nutzbar mit | Home Assistant, ioBroker und jedem MQTT-Broker |
+
+**Stromversorgung**
+
+| | |
+|---|---|
+| Versorgung | extern 10–30 V DC, 24 V nominal |
+| Verbrauch | ca. 1,8 W bei aktivem Display |
+| Sleep-Modus | aktivierbar, automatisches Wecken bei aktuellen Sensorwerten, Dauer konfigurierbar |
+
+**Konfiguration & Updates**
+
+| | |
+|---|---|
+| Einrichtung | vollständig über Web-Oberfläche am Gerät konfigurierbar |
+| Updates | Firmware-Updates over-the-air |
+
+**Gehäuse & Montage**
+
+| | |
+|---|---|
+| Montage | freistehend, wandmontiert, oder nachgerüstet auf bestehendem Lichtschalter-Sockel |
+| Materialien | eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff, Glas |
 
 ---
 
