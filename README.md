@@ -78,23 +78,23 @@ Tiefschlaf versetzt werden, aus dem es zyklisch nur kurz für einen
 Sensor-Report aufwacht.
 
 ```mermaid
-stateDiagram-v2
-    Aktiv --> Screensaver: Inaktivität (Timeout)
-    Screensaver --> Gedimmt: weiter inaktiv
-    Gedimmt --> DisplayAus: weiter inaktiv (Burn-in-Schutz)
+flowchart TD
+    Aktiv -->|"Inaktivität (Timeout)"| Screensaver
+    Screensaver -->|"weiter inaktiv"| Gedimmt
+    Gedimmt -->|"weiter inaktiv (Burn-in-Schutz)"| DisplayAus
 
-    Aktiv --> DeepSleep: MQTT sleep=1
-    Screensaver --> DeepSleep: MQTT sleep=1
-    Gedimmt --> DeepSleep: MQTT sleep=1
-    DisplayAus --> DeepSleep: MQTT sleep=1
+    Aktiv -->|"MQTT sleep=1"| DeepSleep
+    Screensaver -->|"MQTT sleep=1"| DeepSleep
+    Gedimmt -->|"MQTT sleep=1"| DeepSleep
+    DisplayAus -->|"MQTT sleep=1"| DeepSleep
 
-    DeepSleep --> KurzWach: Timer (alle N Min.)
-    KurzWach --> DeepSleep: Sensorwerte gesendet (35s)
-    DeepSleep --> Aktiv: Bewegung (GPIO)
+    DeepSleep -->|"Timer (alle N Min.)"| KurzWach
+    KurzWach -->|"Sensorwerte gesendet (35s)"| DeepSleep
+    DeepSleep -->|"Bewegung (GPIO)"| Aktiv
 
-    Screensaver --> Aktiv: Touch / ToF / MQTT
-    Gedimmt --> Aktiv: Touch / ToF / MQTT
-    DisplayAus --> Aktiv: Touch / ToF / MQTT
+    Screensaver -->|"Touch / ToF / MQTT"| Aktiv
+    Gedimmt -->|"Touch / ToF / MQTT"| Aktiv
+    DisplayAus -->|"Touch / ToF / MQTT"| Aktiv
 ```
 
 - **Screensaver**: nach konfigurierbarer Inaktivität blendet sich je nach
