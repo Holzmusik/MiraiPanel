@@ -50,7 +50,10 @@ over-the-air.
 
 Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät
 läuft — inklusive visuellem Layout-Editor mit Live-Vorschau und einem
-Status-Dashboard mit Echtzeitwerten.
+Status-Dashboard mit Echtzeitwerten. Im Layout-Editor lassen sich Widgets
+aus einem Pool (Licht, Jalousie, Heizung, Schalter, Sensoren, Audio,
+Wetter) frei auf die 6 Seiten des Displays verteilen und im Raster
+positionieren — nicht benötigte Seiten bleiben einfach leer.
 
 <p align="center">
   <img src="assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" width="270">
@@ -182,6 +185,7 @@ Kabelführung.
 | Kategorie | Merkmal | Details |
 |---|---|---|
 | **Display & Bedienung** | Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
+| | Seiten & Layout | 6 frei belegbare Seiten, Raster-Positionierung per Drag-and-Drop; 21 Pool-Widgets in 7 Kategorien (Licht, Jalousie, Heizung, Schalter, Sensoren, Audio, Wetter) |
 | | Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
 | | Näherung | ToF-Sensor + PIR wecken das Display bei Annäherung |
 | | Feedback | Tastenklick per Buzzer, zusätzlich per MQTT auslösbarer Dauer-Warnton |
