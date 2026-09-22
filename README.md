@@ -31,7 +31,7 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
   Topic-Konfiguration nötig
 - **8 Sensortasten**: kapazitiv, individuell beschriftbar und pro Raum
   austauschbar
-- **Näherung/Wake + Screensaver**: ToF-Sensor (VL53L0X) + PIR wecken das
+- **Näherung/Wake + Screensaver**: ToF-Sensor + PIR wecken das
   Display bei Annäherung; bei Inaktivität blendet sich je nach Zustand ein
   Now-Playing-Overlay (läuft Musik) oder eine Analoguhr (sonst) als
   Bildschirmschoner ein
@@ -109,7 +109,7 @@ Kabelführung.
 |---|---|
 | Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
 | Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
-| Näherung | ToF-Sensor (VL53L0X) + PIR wecken das Display bei Annäherung |
+| Näherung | ToF-Sensor + PIR wecken das Display bei Annäherung |
 | Feedback | konfigurierbare Tastentöne |
 | UI | Light-/Dark-Theme, wählbare Akzentfarbe |
 
