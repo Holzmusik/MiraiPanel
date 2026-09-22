@@ -61,6 +61,13 @@ Panels, keine externe Kamera.
   <img src="assets/detail-nowplaying-scroll.gif" alt="Songtitel-Scrolltext in der Now-Playing-Ansicht" width="220">
 </p>
 
+Und einmal am Stück bedient: Theme- und Akzentfarbwechsel in den
+Einstellungen, zurück zur Übersicht, Cover-Aufbau in der Audio-Ansicht.
+
+<p align="center">
+  <img src="assets/detail-tour.gif" alt="Bedienung am Gerät: Theme-Wechsel, Übersicht, Audio-Cover" width="220">
+</p>
+
 ### Web-Konfiguration
 
 Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät
