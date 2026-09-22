@@ -49,6 +49,18 @@ over-the-air.
   <img src="assets/screen-audio.jpg" alt="Audio Now-Playing" width="220">
 </p>
 
+### In Bewegung
+
+Manche Details fallen erst im laufenden Betrieb auf, nicht auf einem
+Standbild — zum Beispiel der Songtitel-Scrolltext in der Now-Playing-
+Ansicht, wenn Interpret und Titel zusammen nicht in eine Zeile passen.
+Aufgenommen direkt vom Gerät selbst über den HTTP-Screenshot-Endpoint des
+Panels, keine externe Kamera.
+
+<p align="center">
+  <img src="assets/detail-nowplaying-scroll.gif" alt="Songtitel-Scrolltext in der Now-Playing-Ansicht" width="220">
+</p>
+
 ### Web-Konfiguration
 
 Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät
