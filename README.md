@@ -56,6 +56,18 @@ Status-Dashboard mit Echtzeitwerten.
   <img src="assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" width="270">
   <img src="assets/web-preview.png" alt="Live-Display-Vorschau" width="270">
   <img src="assets/web-status.png" alt="Status-Dashboard" width="270">
+  <img src="assets/web-diagnostics.png" alt="System-Diagnose" width="270">
+</p>
+
+### MiraiBridge (LoxBerry-Plugin)
+
+Die Einrichtung auf LoxBerry-Seite läuft genauso über eine Weboberfläche —
+Panels anlegen, Räume aus der Loxone-Struktur zuweisen und die erkannten
+Funktionsblöcke pro Raum verknüpfen.
+
+<p align="center">
+  <img src="assets/bridge-panels.png" alt="MiraiBridge: Panel- und Raumzuordnung" width="400">
+  <img src="assets/bridge-settings.png" alt="MiraiBridge: Einstellungen" width="400">
 </p>
 
 ## Architektur
