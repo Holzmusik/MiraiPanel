@@ -31,7 +31,7 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
   Topic-Konfiguration nötig
 - **8 Sensortasten**: kapazitiv, individuell beschriftbar und pro Raum
   austauschbar
-- **Näherung/Wake + Screensaver**: ToF-Sensor (VL53L0X) + PIR wecken das
+- **Näherung/Wake + Screensaver**: ToF-Sensor + PIR wecken das
   Display bei Annäherung; bei Inaktivität blendet sich je nach Zustand ein
   Now-Playing-Overlay (läuft Musik) oder eine Analoguhr (sonst) als
   Bildschirmschoner ein
@@ -88,9 +88,9 @@ Audioserver direkt per HTTP an, an der Bridge vorbei.
 
 - ESP32-P4 (RISC-V) + ESP32-C6-Companion für WLAN, dazu Ethernet
   (automatisches Failover LAN↔WLAN)
-- 720×1280 MIPI-DSI-LCD, kapazitiver Touchscreen (GT911) + 8 kapazitive
-  Sensortasten (MPR121)
-- Sensoren: VL53L0X (ToF-Näherung), PIR, Mikrofon, Temperatur/Feuchte,
+- 720×1280 MIPI-DSI-LCD, kapazitiver Touchscreen + 8 kapazitive
+  Sensortasten 
+- Sensoren: ToF-Näherung, PIR, Mikrofon, Temperatur/Feuchte,
   CO₂/VOC/Luftqualität, Umgebungslicht, Versorgungsspannung/-strom
 - Eigene PCB (Basis + Sensor-/Touch-Module), siehe
   [MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware)
