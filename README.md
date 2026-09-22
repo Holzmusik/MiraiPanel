@@ -114,6 +114,15 @@ stateDiagram-v2
   Loxone zu melden, bevor er wieder schläft. Bewegung am Panel weckt es
   stattdessen sofort vollständig auf.
 
+  Auch im dunklen, scheinbar "ausgeschalteten" Zustand bleibt das Panel
+  damit kein blinder Fleck: Die Raumtemperatur wird weiterhin regelmäßig
+  an Loxone gemeldet, statt für Stunden komplett zu verstummen — ein
+  ungewöhnlicher Temperaturanstieg (z.B. durch einen beginnenden Brand)
+  fällt so auch nachts zeitnah auf, nicht erst am Morgen beim Aufwecken.
+  Kein Ersatz für einen zugelassenen Rauchmelder, aber ein sinnvoller
+  zusätzlicher Beitrag zur Früherkennung, ganz ohne Mehrverbrauch im
+  Wachzustand.
+
 ## Architektur
 
 ```mermaid
