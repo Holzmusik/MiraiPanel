@@ -20,28 +20,22 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
 
 ## Was das Gerät macht
 
-- **Anzeige**: 5,5″ Touch-LCD (1280×720), mehrere Seiten (Licht/Jalousie/
-  Audio/Schalter, Wetter, Heizung/Raumklima) mit Wisch-Navigation —
-  Light/Dark-Theme mit wählbarer Akzentfarbe, Kopfzeile mit Innen-/
-  Außenklima und Uhrzeit
-- **Audio**: Steuerung eines Loxone Audioservers oder Sonn Core (Play/Pause/
-  Skip/Lautstärke/Favoriten), Cover-Art, Titel/Interpret live
-- **Gebäudesteuerung**: Licht (inkl. Szenen), Jalousie, Heizung, Schalter —
-  alles direkt aus der Loxone-Struktur übernommen, keine manuelle
-  Topic-Konfiguration nötig
-- **8 Sensortasten**: kapazitiv, individuell beschriftbar und pro Raum
-  austauschbar
-- **Näherung/Wake + Screensaver**: ToF-Sensor + PIR wecken das
-  Display bei Annäherung; bei Inaktivität blendet sich je nach Zustand ein
-  Now-Playing-Overlay (läuft Musik) oder eine Analoguhr (sonst) als
-  Bildschirmschoner ein
-- **Sensor-Suite**: Raumtemperatur/-feuchte, CO₂/VOC/Luftqualität,
-  Umgebungslicht, Mikrofon-gestützte Präsenzerkennung, Versorgungsspannung/
-  -strom
-- **Offene Integration**: MQTT-Schnittstelle — LoxBerry-Plugin für Loxone,
-  funktioniert grundsätzlich auch mit Home Assistant, ioBroker & Co.
-- **Konfiguration**: komplett über eine Web-Oberfläche direkt am Gerät,
-  Firmware-Updates over-the-air
+Du gehst am Panel vorbei — es merkt das von selbst und wacht auf, ganz ohne
+Wischen oder Antippen. Läuft gerade Musik, siehst du direkt Cover, Titel und
+kannst pausieren oder überspringen, ohne zum Handy zu greifen. Sonst zeigt
+es eine ruhige Uhr, bis du wieder etwas brauchst.
+
+Ein Fingertipp genügt, um Licht, Jalousien oder die Heizung im Raum zu
+steuern — die Bedienelemente entstehen automatisch aus deiner
+Loxone-Struktur, du musst nichts von Hand verdrahten. Die acht
+Sensortasten daneben lassen sich pro Raum frei belegen und beschriften,
+zusätzlich zum Touchscreen.
+
+Im Hintergrund misst das Panel laufend Raumklima, Licht und Bewegung und
+gibt diese Werte über MQTT weiter — offen für Loxone, aber genauso nutzbar
+mit Home Assistant, ioBroker oder jeder anderen MQTT-Umgebung. Eingerichtet
+wird alles über eine Weboberfläche direkt am Gerät, Updates kommen
+over-the-air.
 
 ## Screenshots
 
@@ -54,17 +48,12 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
 
 ## Architektur
 
-```
-┌──────────────────┐   WebSocket    ┌──────────────────────┐   MQTT   ┌───────────────────┐
-│ Loxone Miniserver │◄──────────────►│ MiraiBridge            │◄────────►│ MiraiPanel          │
-│                  │                │ (LoxBerry-Plugin)      │          │ (ESP32-P4-Firmware)  │
-└──────────────────┘                └──────────┬───────────┘          └─────────┬──────────┘
-                                                 │ WebSocket                      │ HTTP (Play/Pause/
-                                                 │ (Live-Metadaten)               │  Skip/Favoriten)
-                                                 ▼                                ▼
-                                     ┌──────────────────────────────────────────────┐
-                                     │        Loxone Audioserver / Sonn Core           │
-                                     └──────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    MS["Loxone Miniserver"] <-->|WebSocket| Bridge["MiraiBridge<br/>(LoxBerry-Plugin)"]
+    Bridge <-->|MQTT| Panel["MiraiPanel<br/>(ESP32-P4-Firmware)"]
+    Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio["Loxone Audioserver<br/>/ Sonn Core"]
+    Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
 ```
 
 Die MiraiBridge liest beim Start/bei jeder Änderung die komplette
