@@ -1,24 +1,29 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
-  <img src="assets/logo-light.svg" alt="MiraiPanel" width="260">
-</picture>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo-light.svg" alt="MiraiPanel" width="260">
+  </picture>
+</p>
 
-**Control. Sense. One device.**
+<p align="center"><strong>Control. Sense. One device.</strong></p>
 
 Der universelle Raumcontroller für deine Loxone-Hausautomation: ein
 5,5″-Farbdisplay, acht austauschbare Sensortasten und eine volle
 Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
 
-<img src="assets/panel-front.png" alt="MiraiPanel Gehäuse" width="260">
+<p align="center">
+  <img src="assets/panel-front.png" alt="MiraiPanel Gehäuse" width="260">
+</p>
 
 Dieses Repo ist die **Projektübersicht** — der eigentliche Code liegt in den
 verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
 
 ## Was das Gerät macht
 
-- **Anzeige**: 5,5″ Touch-LCD (1280×720), Analoguhr (mit abschaltbarem
-  Sekundenzeiger), Datum, Raumklima, Wetter — Light/Dark-Theme mit
-  wählbarer Akzentfarbe
+- **Anzeige**: 5,5″ Touch-LCD (1280×720), mehrere Seiten (Licht/Jalousie/
+  Audio/Schalter, Wetter, Heizung/Raumklima) mit Wisch-Navigation —
+  Light/Dark-Theme mit wählbarer Akzentfarbe, Kopfzeile mit Innen-/
+  Außenklima und Uhrzeit
 - **Audio**: Steuerung eines Loxone Audioservers oder Sonn Core (Play/Pause/
   Skip/Lautstärke/Favoriten), Cover-Art, Titel/Interpret live
 - **Gebäudesteuerung**: Licht (inkl. Szenen), Jalousie, Heizung, Schalter —
@@ -26,8 +31,10 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
   Topic-Konfiguration nötig
 - **8 Sensortasten**: kapazitiv, individuell beschriftbar und pro Raum
   austauschbar
-- **Näherung/Wake**: ToF-Sensor (VL53L0X) + PIR wecken das Display bei
-  Annäherung, Screensaver mit Uhr bei Inaktivität
+- **Näherung/Wake + Screensaver**: ToF-Sensor (VL53L0X) + PIR wecken das
+  Display bei Annäherung; bei Inaktivität blendet sich je nach Zustand ein
+  Now-Playing-Overlay (läuft Musik) oder eine Analoguhr (sonst) als
+  Bildschirmschoner ein
 - **Sensor-Suite**: Raumtemperatur/-feuchte, CO₂/VOC/Luftqualität,
   Umgebungslicht, Mikrofon-gestützte Präsenzerkennung, Versorgungsspannung/
   -strom
@@ -35,6 +42,15 @@ verlinkten Teilprojekten unten. 📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
   funktioniert grundsätzlich auch mit Home Assistant, ioBroker & Co.
 - **Konfiguration**: komplett über eine Web-Oberfläche direkt am Gerät,
   Firmware-Updates over-the-air
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/screen-overview.jpg" alt="Übersicht: Licht, Jalousie, Audio, Schalter" width="220">
+  <img src="assets/screen-weather.jpg" alt="Wetter-Seite" width="220">
+  <img src="assets/screen-switches.jpg" alt="Schalter-Seite" width="220">
+  <img src="assets/screen-audio.jpg" alt="Audio Now-Playing" width="220">
+</p>
 
 ## Architektur
 
@@ -86,7 +102,9 @@ Kabelführung.
 **Materialien**: eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff
 und Glas.
 
-<img src="assets/panel-back.png" alt="MiraiPanel Rückseite" width="220">
+<p align="center">
+  <img src="assets/panel-back.png" alt="MiraiPanel Rückseite" width="220">
+</p>
 
 ---
 
