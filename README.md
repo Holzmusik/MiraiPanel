@@ -12,7 +12,8 @@ Der universelle Raumcontroller für deine Loxone-Hausautomation: ein
 Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
 
 <p align="center">
-  <img src="assets/panel-front.png" alt="MiraiPanel Gehäuse" width="260">
+  <img src="assets/panel-front.png" alt="MiraiPanel Gehäuse" height="460">
+  <img src="assets/panel-detail.png" alt="MiraiPanel: Sensortasten und Now-Playing-Ansicht im Detail" height="460">
 </p>
 
 Dieses Repo ist die **Projektübersicht** — der eigentliche Code liegt in den
