@@ -118,10 +118,11 @@ stateDiagram-v2
   damit kein blinder Fleck: Die Raumtemperatur wird weiterhin regelmäßig
   an Loxone gemeldet, statt für Stunden komplett zu verstummen — ein
   ungewöhnlicher Temperaturanstieg (z.B. durch einen beginnenden Brand)
-  fällt so auch nachts zeitnah auf, nicht erst am Morgen beim Aufwecken.
+  fällt so auch nachts zeitnah auf, um schnellstmöglich zu reagieren.
   Kein Ersatz für einen zugelassenen Rauchmelder, aber ein sinnvoller
   zusätzlicher Beitrag zur Früherkennung, ganz ohne Mehrverbrauch im
-  Wachzustand.
+  Wachzustand. Auch Raumtemperaturregler bekommen so zuverlässig
+  Livewerte, um weiterhin die aktuelle Raumtemperatur regeln zu können.
 
 ## Architektur
 
