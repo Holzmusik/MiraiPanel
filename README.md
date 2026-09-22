@@ -80,7 +80,7 @@ Audioserver direkt per HTTP an, an der Bridge vorbei.
 
 | Repo | Inhalt |
 |---|---|
-| MiraiPanel-LCD *(noch nicht öffentlich)* | Firmware (ESPHome/ESP-IDF) für das ESP32-P4-Panel selbst — Display/LVGL-UI, Sensoren, Touch, Audio, Web-Konfiguration |
+| [MiraiPanel-LCD](https://github.com/Holzmusik/MiraiPanel-LCD) | Firmware (ESPHome/ESP-IDF) für das ESP32-P4-Panel selbst — Display/LVGL-UI, Sensoren, Touch, Audio, Web-Konfiguration *(Quellcode folgt, noch in Test/Entwicklung)* |
 | [LoxBerry-Plugin-MiraiPanel](https://github.com/Holzmusik/LoxBerry-Plugin-MiraiPanel) | "MiraiBridge" — LoxBerry-Plugin, verbindet Loxone Miniserver per MQTT mit dem Panel |
 | [MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware) | Fertigungsdaten für PCB und Gehäuse (Gerber/STEP/DXF) — noch im Aufbau |
 
