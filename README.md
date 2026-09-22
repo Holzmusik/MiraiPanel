@@ -95,12 +95,20 @@ Audioserver direkt per HTTP an, an der Bridge vorbei.
 - Eigene PCB (Basis + Sensor-/Touch-Module), siehe
   [MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware)
 
-**Montage**: freistehend vor einer Wand, oder nachgerüstet auf dem
-bestehenden Sockel eines Lichtschalters — integrierte, unsichtbare
-Kabelführung.
+**Montage**: freistehend vor einer Wand, wandmontiert, oder nachgerüstet auf
+dem bestehenden Sockel eines Lichtschalters (kompakte Variante) —
+integrierte, unsichtbare Kabelführung.
 
 **Materialien**: eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff
 und Glas.
+
+<p align="center">
+  <img src="assets/mount-1.png" alt="Montagevarianten: freistehend und wandmontiert" width="270">
+  <img src="assets/mount-3.png" alt="Wandmontage: Säule und kompakte Variante" width="270">
+  <br>
+  <img src="assets/mount-2.png" alt="Detailansicht Display und Sensortasten" width="270">
+  <img src="assets/mount-4.png" alt="Detailansicht kompakte Wandvariante" width="270">
+</p>
 
 <p align="center">
   <img src="assets/panel-back.png" alt="MiraiPanel Rückseite" width="220">
