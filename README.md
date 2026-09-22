@@ -103,56 +103,29 @@ Kabelführung.
 
 ## Technische Daten
 
-**Display & Bedienung**
-
-| | |
-|---|---|
-| Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
-| Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
-| Näherung | ToF-Sensor + PIR wecken das Display bei Annäherung |
-| Feedback | konfigurierbare Tastentöne |
-| UI | Light-/Dark-Theme, wählbare Akzentfarbe |
-
-**Sensoren**
-
-| | |
-|---|---|
-| Raumklima | Temperatur/Feuchte, CO₂/VOC/Luftqualität |
-| Bewegung | PIR-Sensor |
-| Präsenz | Mikrofon mit einstellbarer Schwelle |
-| Licht | Umgebungslichtsensor |
-| Versorgung | Spannungs-/Strommessung |
-
-**Konnektivität & Integration**
-
-| | |
-|---|---|
-| Netzwerk | LAN 10/100, automatisches Failover auf WLAN |
-| Protokoll | MQTT — offene Schnittstelle für jede MQTT-Umgebung |
-| Loxone | LoxBerry-Plugin (MiraiBridge) für direkte Integration |
-| Auch nutzbar mit | Home Assistant, ioBroker und jedem MQTT-Broker |
-
-**Stromversorgung**
-
-| | |
-|---|---|
-| Versorgung | extern 10–30 V DC, 24 V nominal |
-| Verbrauch | ca. 1,8 W bei aktivem Display |
-| Sleep-Modus | aktivierbar, automatisches Wecken bei aktuellen Sensorwerten, Dauer konfigurierbar |
-
-**Konfiguration & Updates**
-
-| | |
-|---|---|
-| Einrichtung | vollständig über Web-Oberfläche am Gerät konfigurierbar |
-| Updates | Firmware-Updates over-the-air |
-
-**Gehäuse & Montage**
-
-| | |
-|---|---|
-| Montage | freistehend, wandmontiert, oder nachgerüstet auf bestehendem Lichtschalter-Sockel |
-| Materialien | eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff, Glas |
+| Kategorie | Merkmal | Details |
+|---|---|---|
+| **Display & Bedienung** | Display | 5,5″ Farb-LCD, Touch, 1280×720 px |
+| | Sensortasten | 8× kapazitiv, einstellbare Empfindlichkeit, individuell beschriftbar & pro Raum austauschbar |
+| | Näherung | ToF-Sensor + PIR wecken das Display bei Annäherung |
+| | Feedback | konfigurierbare Tastentöne |
+| | UI | Light-/Dark-Theme, wählbare Akzentfarbe |
+| **Sensoren** | Raumklima | Temperatur/Feuchte, CO₂/VOC/Luftqualität |
+| | Bewegung | PIR-Sensor |
+| | Präsenz | Mikrofon mit einstellbarer Schwelle |
+| | Licht | Umgebungslichtsensor |
+| | Versorgung | Spannungs-/Strommessung |
+| **Konnektivität** | Netzwerk | LAN 10/100, automatisches Failover auf WLAN |
+| | Protokoll | MQTT — offene Schnittstelle für jede MQTT-Umgebung |
+| | Loxone | LoxBerry-Plugin (MiraiBridge) für direkte Integration |
+| | Auch nutzbar mit | Home Assistant, ioBroker und jedem MQTT-Broker |
+| **Stromversorgung** | Versorgung | extern 10–30 V DC, 24 V nominal |
+| | Verbrauch | ca. 1,8 W bei aktivem Display |
+| | Sleep-Modus | aktivierbar, automatisches Wecken bei aktuellen Sensorwerten, Dauer konfigurierbar |
+| **Konfiguration** | Einrichtung | vollständig über Web-Oberfläche am Gerät konfigurierbar |
+| | Updates | Firmware-Updates over-the-air |
+| **Gehäuse** | Montage | freistehend, wandmontiert, oder nachgerüstet auf bestehendem Lichtschalter-Sockel |
+| | Materialien | eloxiertes Aluminium, Edelstahl, 3D-gedrucktes Kunststoff, Glas |
 
 ---
 
