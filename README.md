@@ -132,6 +132,7 @@ flowchart LR
     Bridge <-->|MQTT| Panel("MiraiPanel<br/>(ESP32-P4-Firmware)")
     Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio("Loxone Audioserver<br/>/ Sonn Core")
     Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
+    Panel -->|"HTTP<br/>Cover-Bild (Proxy)"| Bridge
 ```
 
 Die MiraiBridge liest beim Start/bei jeder Änderung die komplette
@@ -142,6 +143,14 @@ WebSocket-Verbindung zum Audioserver/Sonn Core für latenzarme
 Titel/Cover/Lautstärke-Updates, die sie per MQTT ans Panel weiterreicht. Nur
 für aktive Befehle (Play/Pause/Skip, Favoriten laden) spricht das Panel den
 Audioserver direkt per HTTP an, an der Bridge vorbei.
+
+Cover-Bilder holt sich das Panel dagegen über einen kleinen Bild-Proxy in
+der MiraiBridge statt direkt von der Original-Quelle: Der Proxy lädt das
+Bild, wandelt es unabhängig vom Ausgangsformat (PNG, WebP, auch progressive
+JPEGs, an denen der ESP32-Decoder sonst scheitern würde) in ein
+kompatibles Baseline-JPEG um, skaliert es auf die jeweils benötigte
+Zielgröße und cached das Ergebnis — spart Rechenzeit auf dem Panel und
+unnötige wiederholte Downloads derselben Cover-URL.
 
 ## Teilprojekte
 
