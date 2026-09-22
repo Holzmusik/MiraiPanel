@@ -79,16 +79,16 @@ Sensor-Report aufwacht.
 
 ```mermaid
 flowchart TD
-    Aktiv -->|"Inaktivität (Timeout)"| Screensaver
-    Screensaver -->|"weiter inaktiv"| Gedimmt
-    Gedimmt -->|"weiter inaktiv (Burn-in-Schutz)"| DisplayAus
+    Aktiv("Aktiv") -->|"Inaktivität (Timeout)"| Screensaver("Screensaver")
+    Screensaver -->|"weiter inaktiv"| Gedimmt("Gedimmt")
+    Gedimmt -->|"weiter inaktiv (Burn-in-Schutz)"| DisplayAus("Display aus")
 
-    Aktiv -->|"MQTT sleep=1"| DeepSleep
+    Aktiv -->|"MQTT sleep=1"| DeepSleep("Deep Sleep")
     Screensaver -->|"MQTT sleep=1"| DeepSleep
     Gedimmt -->|"MQTT sleep=1"| DeepSleep
     DisplayAus -->|"MQTT sleep=1"| DeepSleep
 
-    DeepSleep -->|"Timer (alle N Min.)"| KurzWach
+    DeepSleep -->|"Timer (alle N Min.)"| KurzWach("Kurz wach")
     KurzWach -->|"Sensorwerte gesendet (35s)"| DeepSleep
     DeepSleep -->|"Bewegung (GPIO)"| Aktiv
 
@@ -128,9 +128,9 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    MS["Loxone Miniserver"] <-->|WebSocket| Bridge["MiraiBridge<br/>(LoxBerry-Plugin)"]
-    Bridge <-->|MQTT| Panel["MiraiPanel<br/>(ESP32-P4-Firmware)"]
-    Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio["Loxone Audioserver<br/>/ Sonn Core"]
+    MS("Loxone Miniserver") <-->|WebSocket| Bridge("MiraiBridge<br/>(LoxBerry-Plugin)")
+    Bridge <-->|MQTT| Panel("MiraiPanel<br/>(ESP32-P4-Firmware)")
+    Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio("Loxone Audioserver<br/>/ Sonn Core")
     Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
 ```
 
