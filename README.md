@@ -218,3 +218,6 @@ Kabelführung.
 <sub>MiraiPanel ist ein unabhängiges Projekt und steht in keiner Verbindung
 zu oder Unterstützung durch Loxone Electronics GmbH. Loxone ist eine
 Marke der Loxone Electronics GmbH.</sub>
+
+<sub>© Holzmusik. Dieses Repo dient der Projektvorstellung — es ist (noch)
+keine Lizenz vergeben, es gelten die Standard-Urheberrechte.</sub>
