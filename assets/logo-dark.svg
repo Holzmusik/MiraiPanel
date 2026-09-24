@@ -12,8 +12,8 @@
     <rect x="134" y="134" width="40" height="40" rx="10" fill="none" stroke="#F4FBF6" stroke-width="6"/>
     <rect x="82"  y="186" width="40" height="40" rx="10" fill="none" stroke="#F4FBF6" stroke-width="6"/>
     <rect x="134" y="186" width="40" height="40" rx="10" fill="none" stroke="#F4FBF6" stroke-width="6"/>
-    <rect x="82" y="134" width="40" height="40" rx="10" fill="#8FE3B0"/>
-    <circle cx="154" cy="50" r="9" fill="#3DBB6E"/>
-    <path d="M 157.0 33.3 A 17 17 0 0 1 170.7 53.0" fill="none" stroke="#8FE3B0" stroke-width="6" stroke-linecap="round"/></g>
-  <text x="172" y="103" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="66" font-weight="700" letter-spacing="-1.5" fill="#F4FBF6">Mirai<tspan fill="#8FE3B0" font-weight="600">Panel</tspan></text>
+    <rect x="82" y="134" width="40" height="40" rx="10" fill="#7ddc4a"/>
+    <circle cx="154" cy="50" r="9" fill="#4a9900"/>
+    <path d="M 157.0 33.3 A 17 17 0 0 1 170.7 53.0" fill="none" stroke="#7ddc4a" stroke-width="6" stroke-linecap="round"/></g>
+  <text x="172" y="103" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="66" font-weight="700" letter-spacing="-1.5" fill="#F4FBF6">Mirai<tspan fill="#7ddc4a" font-weight="600">Panel</tspan></text>
 </svg>
