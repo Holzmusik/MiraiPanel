@@ -16,10 +16,15 @@ Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
   <img src="assets/panel-detail.png" alt="MiraiPanel: Sensortasten und Now-Playing-Ansicht im Detail" height="460">
 </p>
 
-Dieses Repo ist die **Projektübersicht** — der eigentliche Code liegt in den
-verlinkten Teilprojekten unten.
+<p align="center">
+  <a href="https://github.com/Holzmusik/MiraiPanel-LCD"><img src="https://img.shields.io/badge/Firmware-MiraiPanel--LCD-4a9900?style=for-the-badge" alt="Firmware"></a>
+  <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge"><img src="https://img.shields.io/badge/Bridge-MiraiBridge-4a9900?style=for-the-badge" alt="Bridge"></a>
+  <a href="https://github.com/Holzmusik/MiraiPanel-Hardware"><img src="https://img.shields.io/badge/Hardware-PCB%20%2B%20Geh%C3%A4use-4a9900?style=for-the-badge" alt="Hardware"></a>
+  <a href="assets/MiraiPanel-Flyer.pdf"><img src="https://img.shields.io/badge/Flyer-PDF-4a9900?style=for-the-badge" alt="Flyer PDF"></a>
+</p>
 
-📄 [Flyer (PDF)](assets/MiraiPanel-Flyer.pdf)
+Dieses Repo ist die **Projektübersicht** — der eigentliche Code liegt in den
+verlinkten Teilprojekten oben/unten.
 
 ## Was das Gerät macht
 
