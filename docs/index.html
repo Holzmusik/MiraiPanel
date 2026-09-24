@@ -17,6 +17,8 @@
   .navlink{font-size:13px;color:#a9b3ac;font-weight:600;white-space:nowrap}
   .navlink:hover{color:#e6e8e6}
   img{max-width:100%}
+  .lb-img{cursor:zoom-in}
+  .lb-img:hover{opacity:.9}
   @media (max-width: 700px) {
     .navlinks{display:none!important}
     .grid2{grid-template-columns:1fr!important}
@@ -65,9 +67,9 @@
     </div>
 
     <div style="display: flex; gap: 22px; align-items: flex-end; margin-top: 12px; flex-wrap: wrap; justify-content: center;">
-      <img class="hero-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-angle.png" alt="MiraiPanel im 3/4-Blick mit Now-Playing-Ansicht" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));">
-      <img class="hero-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-front.png" alt="MiraiPanel Gehäuse mit Now-Playing-Ansicht" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));">
-      <img class="hero-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-detail.png" alt="MiraiPanel: Sensortasten und Now-Playing-Ansicht im Detail" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));">
+      <img class="hero-img lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-angle.png" alt="MiraiPanel im 3/4-Blick mit Now-Playing-Ansicht" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));" onclick="openLightbox(this)">
+      <img class="hero-img lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-front.png" alt="MiraiPanel Gehäuse mit Now-Playing-Ansicht" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));" onclick="openLightbox(this)">
+      <img class="hero-img lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-detail.png" alt="MiraiPanel: Sensortasten und Now-Playing-Ansicht im Detail" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));" onclick="openLightbox(this)">
     </div>
 
     <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
@@ -196,10 +198,10 @@
       Musik im Blick statt im Handy: Cover, Titel und Play/Pause direkt am Panel, ohne danach zu greifen. Dazu eine eigene Wetter-Seite mit Vorhersage für die nächsten Tage, direkt an der Wand statt in einer App.
     </div>
     <div class="grid4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-overview.jpg" alt="Übersicht: Licht, Jalousie, Audio, Schalter" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-weather.jpg" alt="Wetter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-switches.jpg" alt="Schalter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-audio.jpg" alt="Audio Now-Playing" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-overview.jpg" alt="Übersicht: Licht, Jalousie, Audio, Schalter" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-weather.jpg" alt="Wetter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-switches.jpg" alt="Schalter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-audio.jpg" alt="Audio Now-Playing" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -210,8 +212,8 @@
       Manche Details fallen erst im laufenden Betrieb auf — direkt vom Gerät selbst aufgenommen, über den HTTP-Screenshot-Endpoint des Panels, keine externe Kamera.
     </div>
     <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-nowplaying-scroll.gif" alt="Songtitel-Scrolltext in der Now-Playing-Ansicht" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-tour.gif" alt="Bedienung am Gerät: Theme-Wechsel, Übersicht, Audio-Cover" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-nowplaying-scroll.gif" alt="Songtitel-Scrolltext in der Now-Playing-Ansicht" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-tour.gif" alt="Bedienung am Gerät: Theme-Wechsel, Übersicht, Audio-Cover" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -303,10 +305,10 @@
       Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät läuft — inklusive visuellem Layout-Editor mit Live-Vorschau und einem Status-Dashboard mit Echtzeitwerten. Widgets aus einem Pool lassen sich frei auf 6 Seiten verteilen und im Raster positionieren.
     </div>
     <div class="grid4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-preview.png" alt="Live-Display-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-status.png" alt="Status-Dashboard" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-diagnostics.png" alt="System-Diagnose" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-preview.png" alt="Live-Display-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-status.png" alt="Status-Dashboard" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-diagnostics.png" alt="System-Diagnose" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -317,8 +319,8 @@
       Automatisch eingerichtet statt von Hand verdrahtet: Die Einrichtung auf LoxBerry-Seite läuft genauso über eine Weboberfläche — Panels anlegen, Räume aus der Loxone-Struktur zuweisen und die erkannten Funktionsblöcke pro Raum verknüpfen. Beim Start/bei jeder Änderung liest die Bridge die komplette Miniserver-Struktur (<code style="color:#c9d2cc;">LoxAPP3.json</code>) und leitet daraus automatisch alle benötigten MQTT-Topics ab — keine Topics von Hand eintragen. Für Audio hält sie zusätzlich eine eigene WebSocket-Verbindung zum Audioserver für latenzarme Titel-/Cover-/Lautstärke-Updates, die sie per MQTT ans Panel weiterreicht. Cover-Bilder holt sich das Panel über einen kleinen Proxy in der Bridge, der sie unabhängig vom Ausgangsformat in ein kompatibles Baseline-JPEG umwandelt und cached.
     </div>
     <div class="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-panels.png" alt="MiraiBridge: Panel- und Raumzuordnung" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-settings.png" alt="MiraiBridge: Einstellungen" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-panels.png" alt="MiraiBridge: Panel- und Raumzuordnung" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-settings.png" alt="MiraiBridge: Einstellungen" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -332,8 +334,8 @@
       Freistehend zeigt sich, wie schlank die Säule wirklich wirkt: vom Boden bis auf Blickhöhe, ohne wuchtigen Sockel — nur ein schmaler Standfuß, die Kabelführung verschwindet unsichtbar im Inneren der Stange.
     </div>
     <div class="hw-imgs" style="display: grid; grid-template-columns: 1fr 4.29fr; gap: 22px; align-items: end;">
-      <img class="hw-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-1.png" alt="Freistehende Säulen-Variante in voller Höhe" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img class="hw-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-2.png" alt="Montagevarianten im Vergleich: freistehend, wandmontiert und kompakt" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img class="hw-img lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-1.png" alt="Freistehende Säulen-Variante in voller Höhe" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
+      <img class="hw-img lb-img" src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-2.png" alt="Montagevarianten im Vergleich: freistehend, wandmontiert und kompakt" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -435,6 +437,25 @@
   </div>
 
 </div>
+
+<div id="lightbox" onclick="closeLightbox()" style="display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5,8,6,.92); cursor: zoom-out; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box;">
+  <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.6);">
+</div>
+
+<script>
+function openLightbox(imgEl) {
+  var lbImg = document.getElementById('lightbox-img');
+  lbImg.src = imgEl.src;
+  lbImg.alt = imgEl.alt;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
 
 </body>
 </html>
