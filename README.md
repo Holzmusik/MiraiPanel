@@ -17,7 +17,7 @@ Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
 </p>
 
 <p align="center">
-  <a href="https://holzmusik.github.io/"><img src="https://img.shields.io/badge/Website-holzmusik.github.io-7ddc4a?style=for-the-badge" alt="Website"></a>
+  <a href="https://holzmusik.github.io/MiraiPanel/"><img src="https://img.shields.io/badge/Website-holzmusik.github.io%2FMiraiPanel-7ddc4a?style=for-the-badge" alt="Website"></a>
   <a href="https://github.com/Holzmusik/MiraiPanel-LCD"><img src="https://img.shields.io/badge/Firmware-MiraiPanel--LCD-4a9900?style=for-the-badge" alt="Firmware"></a>
   <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge"><img src="https://img.shields.io/badge/Bridge-MiraiBridge-4a9900?style=for-the-badge" alt="Bridge"></a>
   <a href="https://github.com/Holzmusik/MiraiPanel-Hardware"><img src="https://img.shields.io/badge/Hardware-PCB%20%2B%20Geh%C3%A4use-4a9900?style=for-the-badge" alt="Hardware"></a>
