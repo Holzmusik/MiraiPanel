@@ -160,21 +160,28 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    MS("Loxone Miniserver") <-->|WebSocket| Bridge("MiraiBridge<br/>(LoxBerry-Plugin)")
-    Bridge <-->|MQTT| Panel("MiraiPanel<br/>(ESP32-P4-Firmware)")
+    Other("weitere MQTT-Clients<br/>eigene Integrationen") <-->|MQTT| Broker(("MQTT Broker"))
+    Broker <-->|MQTT| Bridge("MiraiBridge<br/>(LoxBerry-Plugin)")
+    Broker <-->|MQTT| Panel("MiraiPanel<br/>(beliebig viele)")
+    MS("Loxone Miniserver") <-->|WebSocket| Bridge
     Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio("Loxone Audioserver<br/>/ Sonn Core")
     Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
     Bridge -->|"HTTP<br/>Cover-Bild (Proxy)"| Panel
 ```
 
-Die MiraiBridge liest beim Start/bei jeder Änderung die komplette
-Miniserver-Struktur (`LoxAPP3.json`) und leitet daraus automatisch alle
-benötigten MQTT-Topics pro konfiguriertem Baustein ab — keine Topics von
-Hand eintragen. Für Audio hält die Bridge zusätzlich eine eigene
+Im Zentrum steht ein gewöhnlicher MQTT-Broker — MiraiPanel ist ein
+MQTT-Client wie jeder andere, kein Loxone-exklusives Gerät, und beliebig
+viele Panels können gleichzeitig verbunden sein. Die MiraiBridge
+übersetzt zwischen diesem MQTT-Netz und der WebSocket-Welt des Loxone
+Miniservers und ist damit nur einer von mehreren denkbaren Wegen hinein.
+Sie liest beim Start/bei jeder Änderung die komplette Miniserver-Struktur
+(`LoxAPP3.json`) und leitet daraus automatisch alle benötigten
+MQTT-Topics pro konfiguriertem Baustein ab — keine Topics von Hand
+eintragen. Für Audio hält die Bridge zusätzlich eine eigene
 WebSocket-Verbindung zum Audioserver/Sonn Core für latenzarme
 Titel/Cover/Lautstärke-Updates, die sie per MQTT ans Panel weiterreicht. Nur
 für aktive Befehle (Play/Pause/Skip, Favoriten laden) spricht das Panel den
-Audioserver direkt per HTTP an, an der Bridge vorbei.
+Audioserver direkt per HTTP an, am Broker vorbei.
 
 Cover-Bilder holt sich das Panel dagegen über einen kleinen Bild-Proxy in
 der MiraiBridge statt direkt von der Original-Quelle: Der Proxy lädt das
