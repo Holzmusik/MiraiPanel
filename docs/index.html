@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiraiPanel — Control. Sense. One device.</title>
+<meta name="description" content="Der universelle Raumcontroller für deine Hausautomation — 5,5″-Farbdisplay, acht individuell gestaltbare Sensortasten, volle Sensor-Ausstattung. Perfekt integriert in Loxone, offen für LAN/WLAN und MQTT.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:#0b120e;color:#e6e8e6}
+  a{color:#7ddc4a;text-decoration:none}
+  a:hover{color:#9ef272}
+  ::selection{background:#4a9900;color:#fff}
+  .disp{font-family:'Space Grotesk',system-ui,sans-serif}
+  .sec{scroll-margin-top:76px}
+  .navlink{font-size:13px;color:#a9b3ac;font-weight:600;white-space:nowrap}
+  .navlink:hover{color:#e6e8e6}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #0b120e;">
+
+  <!-- ── Nav ──────────────────────────────────────────── -->
+  <div style="position: sticky; top: 0; z-index: 10; background: rgba(11,18,14,.9); backdrop-filter: blur(6px); border-bottom: 1px solid #1f2e23;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 14px 32px; box-sizing: border-box; display: flex; align-items: center; gap: 28px;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/logo-light.svg" alt="MiraiPanel" style="height: 22px; width: auto;">
+      <div style="display: flex; gap: 22px; flex-wrap: wrap; flex-grow: 1;">
+        <a class="navlink" href="#funktionen">Funktionen</a>
+        <a class="navlink" href="#sensoren">Sensoren</a>
+        <a class="navlink" href="#architektur">Architektur</a>
+        <a class="navlink" href="#verhalten">Verhalten</a>
+        <a class="navlink" href="#web">Web-Konfiguration</a>
+        <a class="navlink" href="#bridge">MiraiBridge</a>
+        <a class="navlink" href="#hardware">Hardware</a>
+      </div>
+      <a href="https://github.com/Holzmusik/MiraiPanel" class="navlink" style="color: #7ddc4a;">GitHub →</a>
+    </div>
+  </div>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <div style="max-width: 1100px; margin: 0 auto; padding: 132px 32px 96px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center;">
+    <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/logo-light.svg" alt="MiraiPanel" style="width: 260px; height: auto;">
+    <div class="disp" style="font-size: 24px; font-weight: 700; color: #f3f5f3;">Control. Sense. One device.</div>
+    <div style="max-width: 620px; font-size: 16px; line-height: 1.6; color: #b9c2bc;">
+      Der universelle Raumcontroller für deine Hausautomation: ein 5,5″-Farbdisplay, acht individuell gestaltbare, austauschbare Sensortasten und eine volle Sensor-Ausstattung — perfekt integriert in Loxone, offen für jede Umgebung über LAN/WLAN und MQTT.
+    </div>
+
+    <div style="display: flex; gap: 22px; align-items: flex-end; margin-top: 12px; flex-wrap: wrap; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-front.png" alt="MiraiPanel Gehäuse mit Now-Playing-Ansicht" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/panel-detail.png" alt="MiraiPanel: Sensortasten und Now-Playing-Ansicht im Detail" style="height: 420px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5));">
+    </div>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+      <a href="https://github.com/Holzmusik/MiraiPanel" style="padding: 12px 22px; border-radius: 999px; background: #4a9900; color: #08150a; font-weight: 700; font-size: 14px;">GitHub-Projekt ansehen</a>
+      <a href="https://github.com/Holzmusik/MiraiPanel-LCD" style="padding: 12px 22px; border-radius: 999px; border: 1px solid #3a4a3f; color: #e6e8e6; font-weight: 600; font-size: 14px;">Firmware</a>
+      <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge" style="padding: 12px 22px; border-radius: 999px; border: 1px solid #3a4a3f; color: #e6e8e6; font-weight: 600; font-size: 14px;">Bridge</a>
+      <a href="https://github.com/Holzmusik/MiraiPanel-Hardware" style="padding: 12px 22px; border-radius: 999px; border: 1px solid #3a4a3f; color: #e6e8e6; font-weight: 600; font-size: 14px;">Hardware</a>
+    </div>
+  </div>
+
+  <!-- ── Features ─────────────────────────────────────── -->
+  <div id="funktionen" class="sec" style="max-width: 1100px; margin: 40px auto 0; padding: 0 32px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
+    <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 34px 28px; display: flex; flex-direction: column; gap: 16px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ddc4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+      <div class="disp" style="font-weight: 500; font-size: 18px; color: #f3f5f3;">Alles an einem Ort</div>
+      <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac;">Licht, Jalousien, Heizung und Musik direkt im Raum bedienen — eine zentrale Stelle statt Handy, App oder Lichtschalter-Sammlung.</div>
+    </div>
+    <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 34px 28px; display: flex; flex-direction: column; gap: 16px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ddc4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      <div class="disp" style="font-weight: 500; font-size: 18px; color: #f3f5f3;">Reagiert von selbst</div>
+      <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac;">Genug eigene Sensorik für Anwesenheit, Bewegung und Raumklima — das Panel merkt, wenn du da bist, ganz ohne Wischen oder Antippen.</div>
+    </div>
+    <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 34px 28px; display: flex; flex-direction: column; gap: 16px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ddc4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M7 9h10"/></svg>
+      <div class="disp" style="font-weight: 500; font-size: 18px; color: #f3f5f3;">Auffälliges Designelement</div>
+      <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac;">Freistehend als schlanke Säule vor der Wand, oder flach als direkter Ersatz für einen bestehenden Lichtschalter — kein Zubehör, sondern bewusste Gestaltung.</div>
+    </div>
+  </div>
+
+  <!-- ── Kennzahlen ───────────────────────────────────── -->
+  <div style="max-width: 1100px; margin: 88px auto 0; padding: 0 32px; box-sizing: border-box; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
+    <div style="text-align: center; padding: 26px 14px; border-radius: 14px; background: #101a13; border: 1px solid #1f2e23;">
+      <div class="disp" style="font-size: 28px; font-weight: 700; color: #7ddc4a;">5,5″</div>
+      <div style="font-size: 12px; color: #a9b3ac; margin-top: 4px;">Farbdisplay</div>
+    </div>
+    <div style="text-align: center; padding: 26px 14px; border-radius: 14px; background: #101a13; border: 1px solid #1f2e23;">
+      <div class="disp" style="font-size: 28px; font-weight: 700; color: #7ddc4a;">8×</div>
+      <div style="font-size: 12px; color: #a9b3ac; margin-top: 4px;">Sensortasten</div>
+    </div>
+    <div style="text-align: center; padding: 26px 14px; border-radius: 14px; background: #101a13; border: 1px solid #1f2e23;">
+      <div class="disp" style="font-size: 28px; font-weight: 700; color: #7ddc4a;">&lt;0,1 W</div>
+      <div style="font-size: 12px; color: #a9b3ac; margin-top: 4px;">im Deep Sleep</div>
+    </div>
+    <div style="text-align: center; padding: 26px 14px; border-radius: 14px; background: #101a13; border: 1px solid #1f2e23;">
+      <div class="disp" style="font-size: 28px; font-weight: 700; color: #7ddc4a;">6</div>
+      <div style="font-size: 12px; color: #a9b3ac; margin-top: 4px;">frei belegbare Seiten</div>
+    </div>
+  </div>
+
+  <!-- ── Sensoren & Funktionen ────────────────────────── -->
+  <div id="sensoren" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Sensoren &amp; Funktionen</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Näherung &amp; Bewegung</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Zwei unabhängige Sensoren wecken das Display, ganz ohne Berührung — auch aus dem Tiefschlaf heraus.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>ToF-Näherungssensor mit einstellbarer Reichweite</li>
+          <li>PIR-Bewegungsmelder mit adaptiver Baseline</li>
+          <li>Beide wecken das Panel auch aus Deep Sleep</li>
+        </ul>
+      </div>
+
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Raumklima</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Temperatur, Feuchte und Luftqualität laufend im Blick — per MQTT an Loxone oder jede andere Plattform.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Zwei unabhängige Temperatur-/Feuchtesensoren</li>
+          <li>CO₂/VOC/Luftqualitätsindex</li>
+          <li>Bleibt auch im Deep-Sleep-Zeitfenster aktuell</li>
+        </ul>
+      </div>
+
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Licht &amp; Präsenz</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Das Display passt sich der Umgebung an, statt sie zu ignorieren.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Umgebungslichtsensor steuert Helligkeit &amp; Theme automatisch</li>
+          <li>Mikrofon mit einstellbarer Schwelle für Präsenzerkennung</li>
+        </ul>
+      </div>
+
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Energie-Monitoring</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Spannung, Strom und Leistung der eigenen Versorgung live messbar.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Versorgungsspannung, -strom und -leistung per MQTT</li>
+          <li>Hilft z.B. beim Dimensionieren des Netzteils</li>
+        </ul>
+      </div>
+
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px; grid-column: span 2;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Sensortasten &amp; Feedback</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Acht kapazitive Tasten neben dem Display, unabhängig vom Touchscreen bedienbar.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Empfindlichkeit einzeln einstellbar, pro Raum frei beschriftbar</li>
+          <li>Tastenklick per Buzzer, zusätzlich per MQTT auslösbarer Dauer-Warnton</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Screenshots ──────────────────────────────────── -->
+  <div style="max-width: 1100px; margin: 116px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Am Gerät</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Musik im Blick statt im Handy: Cover, Titel und Play/Pause direkt am Panel, ohne danach zu greifen. Dazu eine eigene Wetter-Seite mit Vorhersage für die nächsten Tage, direkt an der Wand statt in einer App.
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-overview.jpg" alt="Übersicht: Licht, Jalousie, Audio, Schalter" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-weather.jpg" alt="Wetter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-switches.jpg" alt="Schalter-Seite" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/screen-audio.jpg" alt="Audio Now-Playing" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    </div>
+  </div>
+
+  <!-- ── In Bewegung ──────────────────────────────────── -->
+  <div style="max-width: 1100px; margin: 116px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">In Bewegung</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 640px; margin-bottom: 32px;">
+      Manche Details fallen erst im laufenden Betrieb auf — direkt vom Gerät selbst aufgenommen, über den HTTP-Screenshot-Endpoint des Panels, keine externe Kamera.
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-nowplaying-scroll.gif" alt="Songtitel-Scrolltext in der Now-Playing-Ansicht" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/detail-tour.gif" alt="Bedienung am Gerät: Theme-Wechsel, Übersicht, Audio-Cover" style="width: 220px; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    </div>
+  </div>
+
+  <!-- ── Architektur ──────────────────────────────────── -->
+  <div id="architektur" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Architektur</div>
+
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px;">
+      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
+        <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">Loxone Miniserver</div>
+      </div>
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">WebSocket<br><span style="color:#5d6b60;">⟷</span></div>
+      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
+        <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">MiraiBridge</div>
+        <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">LoxBerry-Plugin</div>
+      </div>
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">MQTT<br><span style="color:#5d6b60;">⟷</span></div>
+      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
+        <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">MiraiPanel</div>
+        <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">ESP32-P4-Firmware</div>
+      </div>
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">HTTP<br><span style="color:#5d6b60;">⟶</span></div>
+      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
+        <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">Audioserver</div>
+        <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">/ Sonn Core</div>
+      </div>
+    </div>
+
+    <div style="font-size: 14px; line-height: 1.7; color: #a9b3ac; max-width: 780px; margin-top: 20px;">
+      Die MiraiBridge übersetzt zwischen der WebSocket-Welt des Loxone Miniservers und dem MQTT-Netz, in dem sich Panel und Audioserver bewegen — mehr dazu im Abschnitt <a href="#bridge">MiraiBridge</a> weiter unten. Nur für aktive Audio-Befehle (Play/Pause/Skip, Favoriten) spricht das Panel den Audioserver direkt per HTTP an, an der Bridge vorbei.
+    </div>
+  </div>
+
+  <!-- ── Verhalten ────────────────────────────────────── -->
+  <div id="verhalten" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Verhalten: Screensaver &amp; Sleep</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Der Näherungssensor erkennt dich automatisch — kein Wischen, kein Antippen nötig, das Panel wacht von selbst auf.
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; margin-bottom: 20px;">
+      <div style="padding: 10px 16px; background: #14361d; border: 1px solid #2f5c3a; border-radius: 999px; font-size: 13px; font-weight: 700; color: #9ef272;">Aktiv</div>
+      <div style="color: #5d6b60;">→</div>
+      <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Screensaver</div>
+      <div style="color: #5d6b60;">→</div>
+      <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Gedimmt</div>
+      <div style="color: #5d6b60;">→</div>
+      <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Display aus</div>
+      <div style="color: #5d6b60; margin: 0 4px;">⋯</div>
+      <div style="padding: 10px 16px; background: #101a2a; border: 1px solid #2a3a4f; border-radius: 999px; font-size: 13px; font-weight: 700; color: #7ec9dc;">Deep Sleep</div>
+      <div style="width: 100%; font-size: 11px; color: #7f8b83; margin-top: 6px;">Jede Stufe → Deep Sleep per MQTT-Befehl · Touch/ToF/MQTT weckt aus jeder Stufe sofort zurück zu Aktiv</div>
+    </div>
+
+    <div style="font-size: 14px; line-height: 1.7; color: #a9b3ac; max-width: 780px;">
+      Nach Inaktivität blendet sich je nach Zustand eine Analoguhr oder ein Now-Playing-Overlay ein, dimmt danach die Helligkeit und schaltet zuletzt die Hintergrundbeleuchtung ganz ab (Burn-in-Schutz läuft dabei unsichtbar weiter). Per MQTT-Befehl geht der ESP32-P4 auch in echten Tiefschlaf (&lt;0,1 W statt ~2,3 W) und wacht in einem konfigurierbaren Intervall nur für wenige Sekunden auf, um aktuelle Sensorwerte an Loxone zu melden — Bewegung am Panel weckt es stattdessen sofort vollständig auf.
+      <br><br>
+      Auch im dunklen, scheinbar "ausgeschalteten" Zustand bleibt das Panel damit kein blinder Fleck: Die Raumtemperatur wird weiterhin regelmäßig gemeldet, statt für Stunden komplett zu verstummen — ein ungewöhnlicher Temperaturanstieg (z.B. durch einen beginnenden Brand) fällt so auch nachts zeitnah auf. Kein Ersatz für einen zugelassenen Rauchmelder, aber ein sinnvoller zusätzlicher Beitrag zur Früherkennung, ganz ohne Mehrverbrauch im Wachzustand.
+    </div>
+  </div>
+
+  <!-- ── Web-Konfiguration ────────────────────────────── -->
+  <div id="web" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Web-Konfiguration</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Eingerichtet wird das Panel über eine Weboberfläche, die direkt am Gerät läuft — inklusive visuellem Layout-Editor mit Live-Vorschau und einem Status-Dashboard mit Echtzeitwerten. Widgets aus einem Pool lassen sich frei auf 6 Seiten verteilen und im Raster positionieren.
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-layout.png" alt="Layout-Editor mit Live-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-preview.png" alt="Live-Display-Vorschau" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-status.png" alt="Status-Dashboard" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/web-diagnostics.png" alt="System-Diagnose" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    </div>
+  </div>
+
+  <!-- ── MiraiBridge ──────────────────────────────────── -->
+  <div id="bridge" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">MiraiBridge (LoxBerry-Plugin)</div>
+    <div style="font-size: 14px; line-height: 1.7; color: #a9b3ac; max-width: 780px; margin-bottom: 32px;">
+      Automatisch eingerichtet statt von Hand verdrahtet: Die Einrichtung auf LoxBerry-Seite läuft genauso über eine Weboberfläche — Panels anlegen, Räume aus der Loxone-Struktur zuweisen und die erkannten Funktionsblöcke pro Raum verknüpfen. Beim Start/bei jeder Änderung liest die Bridge die komplette Miniserver-Struktur (<code style="color:#c9d2cc;">LoxAPP3.json</code>) und leitet daraus automatisch alle benötigten MQTT-Topics ab — keine Topics von Hand eintragen. Für Audio hält sie zusätzlich eine eigene WebSocket-Verbindung zum Audioserver für latenzarme Titel-/Cover-/Lautstärke-Updates, die sie per MQTT ans Panel weiterreicht. Cover-Bilder holt sich das Panel über einen kleinen Proxy in der Bridge, der sie unabhängig vom Ausgangsformat in ein kompatibles Baseline-JPEG umwandelt und cached.
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-panels.png" alt="MiraiBridge: Panel- und Raumzuordnung" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/bridge-settings.png" alt="MiraiBridge: Einstellungen" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    </div>
+  </div>
+
+  <!-- ── Hardware ─────────────────────────────────────── -->
+  <div id="hardware" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Hardware</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Eigene PCB (Basis + Sensor-/Touch-Module) und Gehäuse. Montage freistehend, wandmontiert, oder nachgerüstet auf dem bestehenden Sockel eines Lichtschalters (kompakte Variante) — integrierte, unsichtbare Kabelführung.
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-1.png" alt="Montagevarianten: freistehend, wandmontiert und kompakt" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-2.png" alt="Detailansicht Display und Sensortasten" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    </div>
+  </div>
+
+  <!-- ── Teilprojekte ─────────────────────────────────── -->
+  <div id="teilprojekte" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Teilprojekte</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+      <a href="https://github.com/Holzmusik/MiraiPanel-LCD" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiPanel-LCD</div>
+        <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">Firmware (ESPHome/ESP-IDF) für das ESP32-P4-Panel</div>
+      </a>
+      <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiBridge</div>
+        <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">LoxBerry-Plugin, verbindet Loxone per MQTT mit dem Panel</div>
+      </a>
+      <a href="https://github.com/Holzmusik/MiraiPanel-Hardware" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiPanel-Hardware</div>
+        <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">Fertigungsdaten für PCB und Gehäuse</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────── -->
+  <div style="max-width: 1100px; margin: 160px auto 0; padding: 64px 32px 40px; box-sizing: border-box; border-top: 1px solid #1f2e23;">
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;">
+      <div>
+        <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/logo-light.svg" alt="MiraiPanel" style="height: 20px; width: auto; margin-bottom: 10px;">
+        <div style="font-size: 12px; color: #7f8b83; max-width: 280px; line-height: 1.6;">Control. Sense. One device. — der universelle Raumcontroller für deine Hausautomation.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #7f8b83; margin-bottom: 4px;">Seite</div>
+        <a href="#funktionen" style="font-size: 13px; color: #a9b3ac;">Funktionen</a>
+        <a href="#architektur" style="font-size: 13px; color: #a9b3ac;">Architektur</a>
+        <a href="#verhalten" style="font-size: 13px; color: #a9b3ac;">Verhalten</a>
+        <a href="#web" style="font-size: 13px; color: #a9b3ac;">Web-Konfiguration</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #7f8b83; margin-bottom: 4px;">Projekte</div>
+        <a href="https://github.com/Holzmusik/MiraiPanel-LCD" style="font-size: 13px; color: #a9b3ac;">Firmware</a>
+        <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge" style="font-size: 13px; color: #a9b3ac;">MiraiBridge</a>
+        <a href="https://github.com/Holzmusik/MiraiPanel-Hardware" style="font-size: 13px; color: #a9b3ac;">Hardware</a>
+        <a href="https://github.com/Holzmusik/MiraiPanel" style="font-size: 13px; color: #a9b3ac;">Quellcode</a>
+      </div>
+    </div>
+    <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #1a251e; font-size: 12px; color: #75817a; text-align: center; line-height: 1.6;">
+      MiraiPanel ist ein unabhängiges Projekt und steht in keiner Verbindung zu oder Unterstützung durch Loxone Electronics GmbH. Loxone ist eine Marke der Loxone Electronics GmbH.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
