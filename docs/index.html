@@ -28,6 +28,8 @@
     .arch-flow{align-items:stretch!important}
     .arch-item{width:100%!important}
     .arch-arrow, .verh-arrow{transform:rotate(90deg)}
+    .hw-flow{flex-direction:column!important; align-items:center!important}
+    .hw-flow > img{height:360px!important}
   }
   @media (max-width: 420px) {
     .grid4{grid-template-columns:1fr!important}
@@ -286,9 +288,14 @@
     <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
       Eigene PCB (Basis + Sensor-/Touch-Module) und Gehäuse. Montage freistehend, wandmontiert, oder nachgerüstet auf dem bestehenden Sockel eines Lichtschalters (kompakte Variante) — integrierte, unsichtbare Kabelführung.
     </div>
-    <div class="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-1.png" alt="Montagevarianten: freistehend, wandmontiert und kompakt" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
-      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-2.png" alt="Detailansicht Display und Sensortasten" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+    <div class="hw-flow" style="display: flex; gap: 32px; align-items: flex-start;">
+      <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-1.png" alt="Freistehende Säulen-Variante in voller Höhe" style="height: 640px; width: auto; flex-shrink: 0; border-radius: 12px; border: 1px solid #1f2e23;">
+      <div style="display: flex; flex-direction: column; gap: 24px; flex: 1; min-width: 0;">
+        <div style="font-size: 14px; line-height: 1.7; color: #a9b3ac;">
+          Freistehend zeigt sich, wie schlank die Säule wirklich wirkt: vom Boden bis auf Blickhöhe, ohne wuchtigen Sockel — nur ein schmaler Standfuß, die Kabelführung verschwindet unsichtbar im Inneren der Stange.
+        </div>
+        <img src="https://raw.githubusercontent.com/Holzmusik/MiraiPanel/master/assets/mount-2.png" alt="Montagevarianten im Vergleich: freistehend, wandmontiert und kompakt" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid #1f2e23;">
+      </div>
     </div>
   </div>
 

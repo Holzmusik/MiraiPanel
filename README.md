@@ -201,8 +201,8 @@ Sockel eines Lichtschalters (kompakte Variante) — integrierte, unsichtbare
 Kabelführung.
 
 <p align="center">
-  <img src="assets/mount-1.png" alt="Montagevarianten: freistehend, wandmontiert und kompakt" width="320">
-  <img src="assets/mount-2.png" alt="Detailansicht Display und Sensortasten" width="320">
+  <img src="assets/mount-1.png" alt="Freistehende Säulen-Variante in voller Höhe" height="460">
+  <img src="assets/mount-2.png" alt="Montagevarianten im Vergleich: freistehend, wandmontiert und kompakt" height="460">
 </p>
 
 <p align="center">
