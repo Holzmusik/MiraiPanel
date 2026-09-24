@@ -200,6 +200,10 @@ Montage freistehend, wandmontiert, oder nachgerüstet auf dem bestehenden
 Sockel eines Lichtschalters (kompakte Variante) — integrierte, unsichtbare
 Kabelführung.
 
+Freistehend zeigt sich, wie schlank die Säule wirklich wirkt: vom Boden bis
+auf Blickhöhe, ohne wuchtigen Sockel — nur ein schmaler Standfuß, die
+Kabelführung verschwindet unsichtbar im Inneren der Stange.
+
 <p align="center">
   <img src="assets/mount-1.png" alt="Freistehende Säulen-Variante in voller Höhe" height="460">
   <img src="assets/mount-2.png" alt="Montagevarianten im Vergleich: freistehend, wandmontiert und kompakt" height="460">
