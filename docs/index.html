@@ -24,6 +24,10 @@
     .footgrid{grid-template-columns:1fr!important;gap:28px!important}
     .hero-img{height:220px!important}
     .hero-pad{padding-top:72px!important}
+    .arch-flow, .verh-flow{flex-direction:column!important}
+    .arch-flow{align-items:stretch!important}
+    .arch-item{width:100%!important}
+    .arch-arrow, .verh-arrow{transform:rotate(90deg)}
   }
   @media (max-width: 420px) {
     .grid4{grid-template-columns:1fr!important}
@@ -196,22 +200,22 @@
   <div id="architektur" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
     <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Architektur</div>
 
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px;">
-      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
+    <div class="arch-flow" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px;">
+      <div class="arch-item" style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
         <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">Loxone Miniserver</div>
       </div>
-      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">WebSocket<br><span style="color:#5d6b60;">⟷</span></div>
-      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">WebSocket<br><span class="arch-arrow" style="color:#5d6b60; display:inline-block;">⟷</span></div>
+      <div class="arch-item" style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
         <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">MiraiBridge</div>
         <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">LoxBerry-Plugin</div>
       </div>
-      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">MQTT<br><span style="color:#5d6b60;">⟷</span></div>
-      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">MQTT<br><span class="arch-arrow" style="color:#5d6b60; display:inline-block;">⟷</span></div>
+      <div class="arch-item" style="flex: 1 1 160px; text-align: center; padding: 14px 10px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 12px;">
         <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">MiraiPanel</div>
         <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">ESP32-P4-Firmware</div>
       </div>
-      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">HTTP<br><span style="color:#5d6b60;">⟶</span></div>
-      <div style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
+      <div style="flex: 0 0 auto; text-align: center; color: #7ddc4a; font-size: 11px; font-weight: 700;">HTTP<br><span class="arch-arrow" style="color:#5d6b60; display:inline-block;">⟶</span></div>
+      <div class="arch-item" style="flex: 1 1 160px; text-align: center; padding: 14px 10px;">
         <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">Audioserver</div>
         <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">/ Sonn Core</div>
       </div>
@@ -229,15 +233,15 @@
       Der Näherungssensor erkennt dich automatisch — kein Wischen, kein Antippen nötig, das Panel wacht von selbst auf.
     </div>
 
-    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; margin-bottom: 20px;">
+    <div class="verh-flow" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 36px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; margin-bottom: 20px;">
       <div style="padding: 10px 16px; background: #14361d; border: 1px solid #2f5c3a; border-radius: 999px; font-size: 13px; font-weight: 700; color: #9ef272;">Aktiv</div>
-      <div style="color: #5d6b60;">→</div>
+      <div class="verh-arrow" style="color: #5d6b60;">→</div>
       <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Screensaver</div>
-      <div style="color: #5d6b60;">→</div>
+      <div class="verh-arrow" style="color: #5d6b60;">→</div>
       <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Gedimmt</div>
-      <div style="color: #5d6b60;">→</div>
+      <div class="verh-arrow" style="color: #5d6b60;">→</div>
       <div style="padding: 10px 16px; background: #0b120e; border: 1px solid #2a3a2f; border-radius: 999px; font-size: 13px; font-weight: 600; color: #c9d2cc;">Display aus</div>
-      <div style="color: #5d6b60; margin: 0 4px;">⋯</div>
+      <div class="verh-arrow" style="color: #5d6b60; margin: 0 4px;">⋯</div>
       <div style="padding: 10px 16px; background: #101a2a; border: 1px solid #2a3a4f; border-radius: 999px; font-size: 13px; font-weight: 700; color: #7ec9dc;">Deep Sleep</div>
       <div style="width: 100%; font-size: 11px; color: #7f8b83; margin-top: 6px;">Jede Stufe → Deep Sleep per MQTT-Befehl · Touch/ToF/MQTT weckt aus jeder Stufe sofort zurück zu Aktiv</div>
     </div>
