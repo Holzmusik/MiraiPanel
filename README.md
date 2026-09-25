@@ -156,6 +156,24 @@ flowchart TD
   Wachzustand. Auch Raumtemperaturregler bekommen so zuverlässig
   Livewerte, um weiterhin die aktuelle Raumtemperatur regeln zu können.
 
+## Statusmeldungen
+
+Ein schmales Banner blendet sich oben ins Display ein, sobald es etwas zu
+melden gibt — mit drei klar farblich unterschiedenen Dringlichkeitsstufen
+(Info/Warnung/Fehler).
+
+Alle 30 Sekunden prüft sich das Panel selbst: Ethernet, MQTT-Verbindung
+und alle Sensoren (Temperatur/Feuchte, Luftqualität, Licht, PIR, Touch,
+Spannungsüberwachung). Fällt etwas aus, erscheint sofort eine
+entsprechende Meldung; klärt sich die Lage, blendet sie sich automatisch
+wieder aus. Eine Meldung weckt bei Bedarf auch das Display aus dem
+Ruhezustand.
+
+Das System lässt sich auch von außen ansteuern — z.B. direkt aus Loxone:
+Ein MQTT-Topic pro Panel nimmt Level und Text als JSON entgegen, das
+Panel bestätigt per MQTT, sobald am Gerät weggetippt wurde, und
+Meldungen lassen sich auch remote wieder zurückziehen.
+
 ## Architektur
 
 ```mermaid

@@ -50,6 +50,7 @@
         <a class="navlink" href="#sensoren">Sensoren</a>
         <a class="navlink" href="#architektur">Architektur</a>
         <a class="navlink" href="#verhalten">Verhalten</a>
+        <a class="navlink" href="#meldungen">Meldungen</a>
         <a class="navlink" href="#web">Web-Konfiguration</a>
         <a class="navlink" href="#bridge">MiraiBridge</a>
         <a class="navlink" href="#hardware">Hardware</a>
@@ -295,6 +296,48 @@
       Nach Inaktivität blendet sich je nach Zustand eine Analoguhr oder ein Now-Playing-Overlay ein, dimmt danach die Helligkeit und schaltet zuletzt die Hintergrundbeleuchtung ganz ab (Burn-in-Schutz läuft dabei unsichtbar weiter). Per MQTT-Befehl geht der ESP32-P4 auch in echten Tiefschlaf (&lt;0,1 W statt ~2,3 W) und wacht in einem konfigurierbaren Intervall nur für wenige Sekunden auf, um aktuelle Sensorwerte an Loxone zu melden — Bewegung am Panel weckt es stattdessen sofort vollständig auf.
       <br><br>
       Auch im dunklen, scheinbar "ausgeschalteten" Zustand bleibt das Panel damit kein blinder Fleck: Die Raumtemperatur wird weiterhin regelmäßig gemeldet, statt für Stunden komplett zu verstummen — ein ungewöhnlicher Temperaturanstieg (z.B. durch einen beginnenden Brand) fällt so auch nachts zeitnah auf. Kein Ersatz für einen zugelassenen Rauchmelder, aber ein sinnvoller zusätzlicher Beitrag zur Früherkennung, ganz ohne Mehrverbrauch im Wachzustand.
+    </div>
+  </div>
+
+  <!-- ── Statusmeldungen ──────────────────────────────── -->
+  <div id="meldungen" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Statusmeldungen</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Ein schmales Banner blendet sich oben ins Display ein, sobald es etwas zu melden gibt — mit drei klar farblich unterschiedenen Dringlichkeitsstufen.
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px 26px; background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #0b120e; border-radius: 10px; border-left: 4px solid #4A90D9;">
+        <span style="font-size: 11px; font-weight: 700; color: #4A90D9; text-transform: uppercase; letter-spacing: .04em; flex-shrink: 0;">Info</span>
+        <span style="font-size: 13px; color: #c9d2cc;">Firmware-Update verfügbar</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #0b120e; border-radius: 10px; border-left: 4px solid #FFA500;">
+        <span style="font-size: 11px; font-weight: 700; color: #FFA500; text-transform: uppercase; letter-spacing: .04em; flex-shrink: 0;">Warnung</span>
+        <span style="font-size: 13px; color: #c9d2cc;">Luftfeuchtesensor nicht erreichbar</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #0b120e; border-radius: 10px; border-left: 4px solid #E53935;">
+        <span style="font-size: 11px; font-weight: 700; color: #E53935; text-transform: uppercase; letter-spacing: .04em; flex-shrink: 0;">Fehler</span>
+        <span style="font-size: 13px; color: #c9d2cc;">Ethernet nicht erreichbar</span>
+      </div>
+    </div>
+
+    <div class="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Automatische Geräte-Diagnose</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Alle 30 Sekunden prüft sich das Panel selbst — Ausfälle erscheinen sofort, Entwarnung blendet die Meldung automatisch wieder aus.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Überwacht Ethernet, MQTT-Verbindung und alle Sensoren (Temperatur/Feuchte, Luftqualität, Licht, PIR, Touch, Spannung)</li>
+          <li>Weckt bei Bedarf das Display aus dem Ruhezustand</li>
+        </ul>
+      </div>
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Externe Meldungen per MQTT</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Auch von außen ansteuerbar — z.B. direkt aus Loxone eine Meldung auf das Display schicken.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Ein MQTT-Topic pro Panel nimmt Level und Text als JSON entgegen</li>
+          <li>Bestätigung per MQTT, sobald am Gerät weggetippt wurde — Meldungen lassen sich auch remote wieder zurückziehen</li>
+        </ul>
+      </div>
     </div>
   </div>
 
