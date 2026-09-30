@@ -51,6 +51,7 @@
         <a class="navlink" href="#architektur">Architektur</a>
         <a class="navlink" href="#verhalten">Verhalten</a>
         <a class="navlink" href="#meldungen">Meldungen</a>
+        <a class="navlink" href="#babyphone">Babyphone</a>
         <a class="navlink" href="#web">Web-Konfiguration</a>
         <a class="navlink" href="#bridge">MiraiBridge</a>
         <a class="navlink" href="#hardware">Hardware</a>
@@ -254,6 +255,11 @@
             <div style="font-weight: 700; font-size: 14px; color: #f3f5f3;">MiraiPanel</div>
             <div style="font-size: 11px; color: #7f8b83; margin-top: 2px;">beliebig viele Geräte</div>
           </div>
+          <div style="font-size: 10px; color: #5d6b60; font-weight: 700; padding: 4px 0;">⋮ direkt, WebSocket</div>
+          <div style="width: 100%; box-sizing: border-box; text-align: center; padding: 10px; border: 1px dashed #2a3a2f; border-radius: 12px;">
+            <div style="font-weight: 600; font-size: 13px; color: #a9b3ac;">MiraiFon-App</div>
+            <div style="font-size: 10px; color: #7f8b83; margin-top: 2px;">Babyphone am Handy, am Broker vorbei</div>
+          </div>
         </div>
 
         <div style="display: flex; flex-direction: column; align-items: center; flex: 1 1 200px; max-width: 240px;">
@@ -268,7 +274,7 @@
     </div>
 
     <div style="font-size: 14px; line-height: 1.7; color: #a9b3ac; max-width: 780px; margin-top: 20px;">
-      Im Zentrum steht ein gewöhnlicher MQTT-Broker — MiraiPanel ist ein MQTT-Client wie jeder andere, kein Loxone-exklusives Gerät, und beliebig viele Panels können gleichzeitig verbunden sein. Die MiraiBridge übersetzt zwischen diesem MQTT-Netz und der WebSocket-Welt des Loxone Miniservers und ist damit nur einer von mehreren denkbaren Wegen hinein — mehr zur Bridge im Abschnitt <a href="#bridge">MiraiBridge</a> weiter unten. Für aktive Audio-Befehle (Play/Pause/Skip, Favoriten) spricht das Panel den Audioserver zusätzlich direkt per HTTP an, am Broker vorbei.
+      Im Zentrum steht ein gewöhnlicher MQTT-Broker — MiraiPanel ist ein MQTT-Client wie jeder andere, kein Loxone-exklusives Gerät, und beliebig viele Panels können gleichzeitig verbunden sein. Die MiraiBridge übersetzt zwischen diesem MQTT-Netz und der WebSocket-Welt des Loxone Miniservers und ist damit nur einer von mehreren denkbaren Wegen hinein — mehr zur Bridge im Abschnitt <a href="#bridge">MiraiBridge</a> weiter unten. Für aktive Audio-Befehle (Play/Pause/Skip, Favoriten) spricht das Panel den Audioserver zusätzlich direkt per HTTP an, am Broker vorbei. Fürs Babyphone (mehr dazu im Abschnitt <a href="#babyphone">Babyphone</a>) streamt das Panel sein Mikrofon zusätzlich direkt an die MiraiFon-App aufs Handy — ebenfalls komplett am Broker vorbei.
     </div>
   </div>
 
@@ -341,6 +347,32 @@
     </div>
   </div>
 
+  <!-- ── Babyphone ────────────────────────────────────── -->
+  <div id="babyphone" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
+    <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Babyphone</div>
+    <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; max-width: 700px; margin-bottom: 32px;">
+      Das ohnehin eingebaute Mikrofon lässt sich zusätzlich als waschechtes Babyphone nutzen: Live-Ton aus dem Kinderzimmer, hörbar in jedem Raum über die vorhandene Multiroom-Audio-Anlage — oder direkt und ohne Umweg über eine eigene Begleit-App fürs Handy, MiraiFon. Solange tatsächlich übertragen wird, zeigt das Display das dauerhaft und gut sichtbar an — nicht nur "Funktion aktiviert", sondern "gerade wird wirklich zugehört".
+    </div>
+    <div class="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Über die Multiroom-Anlage</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Das Mikrofon-Signal steht als ganz normale Quelle zur Verfügung — in jeder Zone im Haus anhörbar, über dieselben Lautsprecher wie die übrige Musik.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Keine zusätzliche Hardware nötig</li>
+          <li>Aktivierbar per Schalter am Gerät, Weboberfläche oder MQTT</li>
+        </ul>
+      </div>
+      <div style="background: #101a13; border: 1px solid #1f2e23; border-radius: 16px; padding: 30px;">
+        <div style="font-weight: 700; font-size: 15px; color: #f3f5f3; margin-bottom: 8px;">Direkt per MiraiFon-App</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #a9b3ac; margin-bottom: 12px;">Eigene, schlanke Begleit-App fürs Handy — hört ein gekoppeltes Panel direkt ab, ganz ohne Multiroom-Anlage im Haus.</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #8f9a92;">
+          <li>Installierbar direkt aus dem Browser, kein App-Store nötig</li>
+          <li>Eigene Lautstärkeregelung am Handy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Web-Konfiguration ────────────────────────────── -->
   <div id="web" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
     <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Web-Konfiguration</div>
@@ -401,6 +433,7 @@
       <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1a251e; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Raumklima</span><span style="color: #c9d2cc; text-align: right;">Temperatur/Feuchte, CO₂/VOC/Luftqualität</span></div>
       <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1a251e; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Bewegung</span><span style="color: #c9d2cc; text-align: right;">PIR-Sensor</span></div>
       <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1a251e; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Präsenz</span><span style="color: #c9d2cc; text-align: right;">Mikrofon mit einstellbarer Schwelle</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1a251e; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Babyphone</span><span style="color: #c9d2cc; text-align: right;">Live-Streaming in jede Zone der Multiroom-Anlage oder direkt per MiraiFon-App</span></div>
       <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1a251e; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Licht</span><span style="color: #c9d2cc; text-align: right;">Umgebungslichtsensor</span></div>
       <div style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; font-size: 12.5px;"><span style="color: #7f8b83; flex-shrink: 0;">Versorgung</span><span style="color: #c9d2cc; text-align: right;">Spannungs-/Strommessung</span></div>
     </div>
@@ -436,7 +469,7 @@
   <!-- ── Teilprojekte ─────────────────────────────────── -->
   <div id="teilprojekte" class="sec" style="max-width: 1100px; margin: 132px auto 0; padding: 0 32px; box-sizing: border-box;">
     <div class="disp" style="font-size: 34px; font-weight: 500; color: #7ddc4a; margin-bottom: 26px;">Teilprojekte</div>
-    <div class="grid3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+    <div class="grid4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px;">
       <a href="https://github.com/Holzmusik/MiraiPanel-LCD" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
         <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiPanel-LCD</div>
         <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">Firmware (ESPHome/ESP-IDF) für das ESP32-P4-Panel</div>
@@ -448,6 +481,10 @@
       <a href="https://github.com/Holzmusik/MiraiPanel-Hardware" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
         <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiPanel-Hardware</div>
         <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">Fertigungsdaten für PCB und Gehäuse</div>
+      </a>
+      <a href="https://github.com/Holzmusik/MiraiFon" style="display: block; background: #101a13; border: 1px solid #1f2e23; border-radius: 14px; padding: 22px; color: #e6e8e6;">
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">MiraiFon</div>
+        <div style="font-size: 13px; line-height: 1.5; color: #a9b3ac;">Begleit-App fürs Babyphone — hört ein gekoppeltes Panel direkt am Handy ab</div>
       </a>
     </div>
   </div>
@@ -464,6 +501,7 @@
         <a href="#funktionen" style="font-size: 13px; color: #a9b3ac;">Funktionen</a>
         <a href="#architektur" style="font-size: 13px; color: #a9b3ac;">Architektur</a>
         <a href="#verhalten" style="font-size: 13px; color: #a9b3ac;">Verhalten</a>
+        <a href="#babyphone" style="font-size: 13px; color: #a9b3ac;">Babyphone</a>
         <a href="#web" style="font-size: 13px; color: #a9b3ac;">Web-Konfiguration</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -471,6 +509,7 @@
         <a href="https://github.com/Holzmusik/MiraiPanel-LCD" style="font-size: 13px; color: #a9b3ac;">Firmware</a>
         <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge" style="font-size: 13px; color: #a9b3ac;">MiraiBridge</a>
         <a href="https://github.com/Holzmusik/MiraiPanel-Hardware" style="font-size: 13px; color: #a9b3ac;">Hardware</a>
+        <a href="https://github.com/Holzmusik/MiraiFon" style="font-size: 13px; color: #a9b3ac;">MiraiFon</a>
         <a href="https://github.com/Holzmusik/MiraiPanel" style="font-size: 13px; color: #a9b3ac;">Quellcode</a>
       </div>
     </div>

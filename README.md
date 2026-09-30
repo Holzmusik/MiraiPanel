@@ -22,6 +22,7 @@ Sensor-Ausstattung — verbunden über LAN/WLAN und MQTT.
   <a href="https://github.com/Holzmusik/MiraiPanel-LCD"><img src="https://img.shields.io/badge/Firmware-MiraiPanel--LCD-4a9900?style=for-the-badge" alt="Firmware"></a>
   <a href="https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge"><img src="https://img.shields.io/badge/Bridge-MiraiBridge-4a9900?style=for-the-badge" alt="Bridge"></a>
   <a href="https://github.com/Holzmusik/MiraiPanel-Hardware"><img src="https://img.shields.io/badge/Hardware-PCB%20%2B%20Geh%C3%A4use-4a9900?style=for-the-badge" alt="Hardware"></a>
+  <a href="https://github.com/Holzmusik/MiraiFon"><img src="https://img.shields.io/badge/App-MiraiFon-4a9900?style=for-the-badge" alt="MiraiFon App"></a>
   <a href="assets/MiraiPanel-Flyer.pdf"><img src="https://img.shields.io/badge/Flyer-PDF-4a9900?style=for-the-badge" alt="Flyer PDF"></a>
 </p>
 
@@ -185,6 +186,8 @@ flowchart LR
     Bridge <-->|"WebSocket<br/>(Live-Metadaten)"| Audio("Loxone Audioserver<br/>/ Sonn Core")
     Panel -->|"HTTP<br/>Play/Pause/Skip/Favoriten"| Audio
     Bridge -->|"HTTP<br/>Cover-Bild (Proxy)"| Panel
+    Panel -->|"Mikrofon-Stream<br/>(Babyphone)"| Audio
+    Panel <-->|"WebSocket, direkt<br/>(Babyphone)"| MiraiFon("MiraiFon-App<br/>(Handy)")
 ```
 
 Im Zentrum steht ein gewöhnlicher MQTT-Broker — MiraiPanel ist ein
@@ -209,6 +212,28 @@ kompatibles Baseline-JPEG um, skaliert es auf die jeweils benötigte
 Zielgröße und cached das Ergebnis — spart Rechenzeit auf dem Panel und
 unnötige wiederholte Downloads derselben Cover-URL.
 
+Fürs Babyphone streamt das Panel sein Mikrofon zusätzlich direkt an die
+[MiraiFon](https://github.com/Holzmusik/MiraiFon)-Begleit-App aufs Handy —
+komplett am Broker vorbei, für eine besonders unmittelbare Verbindung ohne
+Umweg über Bridge oder Multiroom-Anlage.
+
+## Babyphone
+
+Das ohnehin eingebaute Mikrofon lässt sich zusätzlich als waschechtes
+Babyphone nutzen: Live-Ton aus dem Kinderzimmer, hörbar in jedem Raum über
+die vorhandene Multiroom-Audio-Anlage (Sonn Core) — oder direkt und ohne
+Umweg über eine eigene Begleit-App fürs Handy,
+[MiraiFon](https://github.com/Holzmusik/MiraiFon).
+
+Solange tatsächlich übertragen wird, zeigt das Display das dauerhaft und
+gut sichtbar an — nicht nur "Funktion aktiviert", sondern "gerade wird
+wirklich zugehört".
+
+- Live-Übertragung in jede Zone des Hauses über die vorhandene Multiroom-Anlage
+- Eigene Handy-App ([MiraiFon](https://github.com/Holzmusik/MiraiFon)) für direktes Zuhören, ganz ohne Multiroom-System
+- Gut sichtbare Datenschutz-Anzeige am Display, solange wirklich übertragen wird
+- Aktivierbar per Schalter direkt am Gerät, über die Weboberfläche oder per MQTT — z.B. aus einer Loxone-Automatisierung heraus
+
 ## Teilprojekte
 
 | Repo | Inhalt |
@@ -216,6 +241,7 @@ unnötige wiederholte Downloads derselben Cover-URL.
 | [MiraiPanel-LCD](https://github.com/Holzmusik/MiraiPanel-LCD) | Firmware (ESPHome/ESP-IDF) für das ESP32-P4-Panel selbst — Display/LVGL-UI, Sensoren, Touch, Audio, Web-Konfiguration *(Quellcode folgt, noch in Test/Entwicklung)* |
 | [LoxBerry-Plugin-MiraiBridge](https://github.com/Holzmusik/LoxBerry-Plugin-MiraiBridge) | "MiraiBridge" — LoxBerry-Plugin, verbindet Loxone Miniserver per MQTT mit dem Panel |
 | [MiraiPanel-Hardware](https://github.com/Holzmusik/MiraiPanel-Hardware) | Fertigungsdaten für PCB und Gehäuse (Gerber/STEP/DXF) — noch im Aufbau |
+| [MiraiFon](https://github.com/Holzmusik/MiraiFon) | Begleit-App (PWA) fürs Babyphone — hört ein gekoppeltes Panel direkt am Handy ab, ganz ohne Multiroom-Anlage |
 
 ## Hardware
 
@@ -252,6 +278,7 @@ Kabelführung verschwindet unsichtbar im Inneren der Stange.
 | **Sensoren** | Raumklima | Temperatur/Feuchte, CO₂/VOC/Luftqualität |
 | | Bewegung | PIR-Sensor |
 | | Präsenz | Mikrofon mit einstellbarer Schwelle |
+| | Babyphone | Live-Mikrofon-Streaming in jede Zone der Multiroom-Anlage oder direkt per MiraiFon-App |
 | | Licht | Umgebungslichtsensor |
 | | Versorgung | Spannungs-/Strommessung |
 | &nbsp; | | |
